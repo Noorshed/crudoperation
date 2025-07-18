@@ -1,0 +1,35 @@
+<div class="bg-success m-4 p-4">
+   <div class="bg-light p-5 w-50 m-auto">
+
+    <h1 class="text-center">Product CRUD operation</h1>
+
+    <form class="m-2">
+        <input [(ngModel)]="product.id" type="number" name="id" class="w-25" placeholder="Id">
+        <input [(ngModel)]="product.name" type="text" name="name" class="w-25" placeholder="Name">
+        <input [(ngModel)]="product.price" type="number" name="price" class="w-25" placeholder="Price">
+        <input type="submit" name="submit" value="Add Product" (click)="addProduct()" class="w-25">
+    </form>
+
+
+    <table class="table table-primary  m-auto">
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Submit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td><button class="btn btn-warning me-2">Edit</button><button class="btn btn-danger" (click)="deleteProduct(p.id)">Delete</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+   </div>
+</div>
